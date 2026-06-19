@@ -1374,3 +1374,58 @@ footer {
     }
 }
 
+/* Compact Mobile Viewport Adjustments */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+    
+    .hero-ctas .glow-btn, 
+    .hero-ctas .outline-btn {
+        width: 100%;
+        padding: 0.95rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .price-tag-floating {
+        width: 65px;
+        height: 65px;
+        font-size: 1.1rem;
+        padding: 0;
+        top: -15px;
+        right: -5px;
+    }
+    
+    .price-tag-floating span {
+        font-size: 0.6rem;
+    }
+    
+    .slider-label {
+        font-size: 0.65rem;
+        padding: 0.35rem 0.7rem;
+        bottom: 12px;
+    }
+    
+    .label-before {
+        left: 12px;
+    }
+    
+    .label-after {
+        right: 12px;
+    }
+    
+    .area-list {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
-        navLinks.forEach(link => {
+        // Close menu when any link is clicked inside the menu
+        const menuLinks = navMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileToggle.classList.remove('active');
                 navMenu.classList.remove('active');
@@ -64,11 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setSliderPosition(e.clientX);
         });
 
-        // Touch Events (for mobile)
+        // Touch Events (for mobile) - Prevent default scroll when interacting with the slider
         sliderWrapper.addEventListener('touchstart', (e) => {
             isDragging = true;
             setSliderPosition(e.touches[0].clientX);
-        });
+            e.preventDefault();
+        }, { passive: false });
 
         window.addEventListener('touchend', () => {
             isDragging = false;
@@ -77,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
             setSliderPosition(e.touches[0].clientX);
-        });
+            e.preventDefault();
+        }, { passive: false });
 
         // Handle window resizing to recalculate clip-path properly
         window.addEventListener('resize', () => {
